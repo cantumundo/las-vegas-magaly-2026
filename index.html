@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#120e18">
+<title>Las Vegas · Magaly 2026</title>
+<style>
+:root{
+  --bg:#0d0a12; --panel:#17111e; --panel2:#221629; --text:#fffaf5; --muted:#c9bdca;
+  --gold:#efb85a; --pink:#ff5c91; --blue:#57d6ff; --line:rgba(255,255,255,.11);
+  --shadow:0 18px 50px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+    radial-gradient(800px 500px at 85% -5%,rgba(102,47,164,.24),transparent 60%),
+    radial-gradient(700px 500px at 0 12%,rgba(186,48,101,.18),transparent 58%),
+    var(--bg);
+  color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.hero{
+  min-height:82vh;display:flex;align-items:flex-end;position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(8,6,11,.08),rgba(8,6,11,.2) 38%,rgba(8,6,11,.97) 92%),
+    url("https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?auto=format&fit=crop&w=1800&q=88") center/cover no-repeat;
+}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,5,10,.68),transparent 65%)}
+.hero-inner{position:relative;z-index:2;width:min(1120px,100%);margin:auto;padding:84px 20px 42px}
+.eyebrow{color:#ffe0a9;font-size:.77rem;letter-spacing:.17em;font-weight:900}
+h1{font-family:Georgia,serif;font-size:clamp(3.7rem,10vw,7.4rem);line-height:.86;margin:12px 0 16px;text-shadow:0 10px 30px rgba(0,0,0,.4)}
+.hero p{max-width:740px;font-size:1.08rem;color:#efe6ee}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:11px 16px;background:rgba(255,255,255,.08);color:white;font-weight:800;cursor:pointer;backdrop-filter:blur(10px)}
+.btn.primary{background:var(--gold);color:#24170c;border-color:transparent}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(13,10,18,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{width:min(1120px,100%);margin:auto;display:flex;gap:8px;padding:10px 14px;overflow:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}.nav a{white-space:nowrap;padding:8px 11px;border-radius:999px;color:#e8dce9;font-size:.88rem}.nav a:hover{background:rgba(255,255,255,.07)}
+.wrap{width:min(1120px,100%);margin:auto;padding:0 18px}
+.quick{position:relative;z-index:4;margin-top:-19px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.quick-card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));border-radius:20px;padding:16px;box-shadow:var(--shadow);backdrop-filter:blur(14px)}
+.quick-card .icon{font-size:1.55rem}.quick-card b{display:block;margin-top:6px}.quick-card small{color:var(--muted)}
+section{padding:62px 0;border-top:1px solid var(--line)}
+.kicker{color:var(--gold);font-weight:900;letter-spacing:.14em;font-size:.74rem}
+h2{font-family:Georgia,serif;font-size:clamp(2.1rem,6vw,4.3rem);margin:6px 0 15px}
+.intro{color:var(--muted);max-width:760px;margin-bottom:24px}
+.day-tabs{display:flex;gap:9px;overflow:auto;padding:2px 2px 8px;margin-bottom:18px;scrollbar-width:none}
+.day-tabs::-webkit-scrollbar{display:none}
+.day-tab{min-width:145px;text-align:left;border:1px solid var(--line);background:var(--panel);color:white;border-radius:18px;padding:13px 14px;cursor:pointer}
+.day-tab.active{outline:2px solid var(--gold);background:linear-gradient(180deg,#2b1b32,#1a1220)}
+.day-tab small{display:block;color:var(--muted);margin-top:3px}
+.day-panel{display:none}.day-panel.active{display:block;animation:fade .2s ease}
+@keyframes fade{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:none}}
+.day-layout{display:grid;grid-template-columns:1.02fr .98fr;gap:16px}
+.photo{min-height:430px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background-size:cover;background-position:center;position:relative;box-shadow:var(--shadow)}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.88))}
+.photo-label{position:absolute;left:18px;right:18px;bottom:18px;z-index:2}.photo-label b{font-size:1.25rem}.photo-label small{display:block;color:#eee2eb;margin-top:2px}
+.timeline{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:20px}
+.stop{display:grid;grid-template-columns:82px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.stop:last-child{border-bottom:0}.time{color:var(--gold);font-weight:900}.stop b{display:block;margin-bottom:2px}.stop p{margin:0;color:var(--muted)}
+.badge{display:inline-block;border-radius:999px;padding:4px 8px;font-size:.75rem;font-weight:900;margin-top:8px;background:rgba(239,184,90,.13);color:#ffd994;border:1px solid rgba(239,184,90,.28)}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 7px}.card p{color:var(--muted)}
+.confirmed{border-color:rgba(92,215,150,.34);background:linear-gradient(180deg,rgba(73,188,128,.08),rgba(255,255,255,.025))}
+.status{display:inline-flex;gap:7px;align-items:center;font-size:.78rem;font-weight:900;color:#9df1bf}.status i{width:8px;height:8px;border-radius:50%;background:#62dd98;box-shadow:0 0 14px #62dd98}
+.gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-auto-rows:210px;gap:12px}
+.gimg{border-radius:20px;background-size:cover;background-position:center;border:1px solid var(--line);overflow:hidden;position:relative}
+.gimg.big{grid-row:span 2}.gimg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.78))}
+.gimg span{position:absolute;left:14px;bottom:12px;z-index:2;font-weight:900}
+.mapbox{background:linear-gradient(135deg,#20152a,#12131d);border:1px solid var(--line);border-radius:24px;padding:22px}
+.route{display:flex;flex-wrap:wrap;gap:9px}.route span{padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.fact{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px}.fact small{color:var(--muted);display:block}
+footer{padding:48px 20px 72px;text-align:center;color:#a99daa}
+@media(max-width:780px){
+ .quick,.grid2,.facts{grid-template-columns:1fr 1fr}
+ .day-layout{grid-template-columns:1fr}.photo{min-height:330px}
+ .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:180px}.gimg.big{grid-row:span 1;grid-column:span 2}
+}
+@media(max-width:520px){
+ .quick,.grid2,.facts{grid-template-columns:1fr 1fr}
+ .hero{min-height:76vh}.hero-inner{padding-top:64px}
+ .stop{grid-template-columns:72px 1fr}
+}
+@media print{.topbar,.actions,.day-tabs{display:none}.day-panel{display:block!important}.hero{min-height:auto;background:none}.hero:after{display:none}body{background:white;color:black}.card,.timeline,.quick-card{background:white;color:black;box-shadow:none;border-color:#bbb}.intro,.stop p,.card p,.quick-card small{color:#333}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="nav">
+  <a href="#inicio">Inicio</a><a href="#dias">Días</a><a href="#experiencias">Experiencias</a><a href="#galeria">Fotos</a><a href="#mapa">Mapa</a><a href="#comer">Comer</a>
+</div></div>
+
+<header id="inicio" class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">26—30 OCTUBRE 2026 · MAGALY Y SU ESPOSO</div>
+    <h1>Las Vegas,<br>por primera vez.</h1>
+    <p>Cuatro noches en el Paris Las Vegas, con una mezcla de ciudad, espectáculo y aventura: <b>Gran Cañón, helicóptero sobre el Strip, Sphere, Cirque du Soleil, Fremont y outlets.</b></p>
+    <div class="actions">
+      <a class="btn primary" href="#dias">Ver itinerario</a>
+      <a class="btn" href="#experiencias">Ver experiencias</a>
+      <button class="btn" onclick="window.print()">Imprimir / PDF</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="quick">
+    <div class="quick-card"><div class="icon">🏜️</div><b>Gran Cañón</b><small>Martes 27 · día completo</small></div>
+    <div class="quick-card"><div class="icon">🚁</div><b>Helicóptero</b><small>Miércoles 28 · Strip</small></div>
+    <div class="quick-card"><div class="icon">🌐</div><b>Sphere</b><small>Miércoles 28 · 17:00</small></div>
+    <div class="quick-card"><div class="icon">🎭</div><b>“O” · Cirque</b><small>Miércoles 28 · Bellagio</small></div>
+  </div>
+</div>
+
+<section id="dias">
+<div class="wrap">
+  <div class="kicker">EL VIAJE</div><h2>Un día a la vez</h2>
+  <p class="intro">Toca cada día para abrir su recorrido. El ritmo está pensado para conocer mucho sin convertir el viaje en una carrera.</p>
+
+  <div class="day-tabs">
+    <button class="day-tab active" data-day="d1"><b>Lun 26</b><small>Llegada + Strip</small></button>
+    <button class="day-tab" data-day="d2"><b>Mar 27</b><small>Gran Cañón</small></button>
+    <button class="day-tab" data-day="d3"><b>Mié 28</b><small>Heli + Sphere + O</small></button>
+    <button class="day-tab" data-day="d4"><b>Jue 29</b><small>Outlets + Fremont</small></button>
+    <button class="day-tab" data-day="d5"><b>Vie 30</b><small>Regreso</small></button>
+  </div>
+
+  <div id="d1" class="day-panel active">
+    <div class="day-layout">
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1581351721010-8cf859cb14a4?auto=format&fit=crop&w=1400&q=85')">
+        <div class="photo-label"><b>Primer encuentro con Las Vegas</b><small>Paris · Bellagio · Caesars · Venetian</small></div>
+      </div>
+      <div class="timeline">
+        <div class="stop"><div class="time">11:05</div><div><b>Llegada a Las Vegas</b><p>Equipaje y taxi tradicional al Paris Las Vegas.</p></div></div>
+        <div class="stop"><div class="time">12:30</div><div><b>Paris Las Vegas</b><p>Dejar maletas o check-in y comida tranquila.</p></div></div>
+        <div class="stop"><div class="time">15:00</div><div><b>Primer paseo por el Strip</b><p>Paris, Bellagio, Caesars Palace y Venetian si todavía traen energía.</p></div></div>
+        <div class="stop"><div class="time">Noche</div><div><b>Fuentes del Bellagio</b><p>Cena cerca del Paris o Bellagio.</p><span class="badge">DÍA RELAJADO</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d2" class="day-panel">
+    <div class="day-layout">
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=1400&q=85')">
+        <div class="photo-label"><b>Gran Cañón</b><small>SkyWalk · tirolesa · comida · día completo</small></div>
+      </div>
+      <div class="timeline">
+        <div class="stop"><div class="time">Temprano</div><div><b>Salida al Gran Cañón</b><p>Excursión de día completo.</p></div></div>
+        <div class="stop"><div class="time">Día</div><div><b>Experiencia en el cañón</b><p>Transporte, visita al Gran Cañón, comida, SkyWalk y tirolesa.</p><span class="badge">CONFIRMADO</span></div></div>
+        <div class="stop"><div class="time">10–11 h</div><div><b>Duración aproximada</b><p>Conviene dejar libre el resto de la agenda.</p></div></div>
+        <div class="stop"><div class="time">Noche</div><div><b>Regreso a Las Vegas</b><p>Cena ligera y descanso.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d3" class="day-panel">
+    <div class="day-layout">
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1561359313-0639aad49ca6?auto=format&fit=crop&w=1400&q=85')">
+        <div class="photo-label"><b>El gran día de Vegas</b><small>Helicóptero · Sphere · “O”</small></div>
+      </div>
+      <div class="timeline">
+        <div class="stop"><div class="time">Mañana</div><div><b>Hoteles icónicos</b><p>Bellagio, Venetian y Wynn / Encore a ritmo tranquilo.</p></div></div>
+        <div class="stop"><div class="time">Tarde</div><div><b>🚁 Helicóptero sobre el Strip</b><p>Vuelo panorámico de aproximadamente 10 minutos.</p><span class="badge">CONFIRMADO</span></div></div>
+        <div class="stop"><div class="time">17:00</div><div><b>🌐 Sphere</b><p>Una de las experiencias centrales del viaje.</p><span class="badge">CONFIRMADO</span></div></div>
+        <div class="stop"><div class="time">Noche</div><div><b>🎭 “O” · Cirque du Soleil</b><p>Bellagio · cierre espectacular del día.</p><span class="badge">CONFIRMADO</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d4" class="day-panel">
+    <div class="day-layout">
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1601165269603-6e9cba2d5fd6?auto=format&fit=crop&w=1400&q=85')">
+        <div class="photo-label"><b>Vegas Viejo</b><small>Outlets · Downtown · Fremont Street</small></div>
+      </div>
+      <div class="timeline">
+        <div class="stop"><div class="time">Mañana</div><div><b>🛍️ Outlets</b><p>Compras sin prisa durante la mañana y parte del mediodía.</p></div></div>
+        <div class="stop"><div class="time">Tarde</div><div><b>Regreso al Paris</b><p>Descanso breve antes de salir de nuevo.</p></div></div>
+        <div class="stop"><div class="time">Noche</div><div><b>✨ Fremont Street</b><p>Casinos clásicos, luces, música y la vieja Las Vegas.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d5" class="day-panel">
+    <div class="day-layout">
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1577334928618-2ff950bc9c3c?auto=format&fit=crop&w=1400&q=85')">
+        <div class="photo-label"><b>Última mañana</b><small>Desayuno · paseo · aeropuerto</small></div>
+      </div>
+      <div class="timeline">
+        <div class="stop"><div class="time">Mañana</div><div><b>Despedida</b><p>Desayuno tranquilo y último paseo o compras pendientes.</p></div></div>
+        <div class="stop"><div class="time">~11:30</div><div><b>Salida del Paris</b><p>Taxi tradicional al aeropuerto.</p></div></div>
+        <div class="stop"><div class="time">15:20</div><div><b>✈️ LAS → MTY</b><p>Fin del viaje.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="experiencias">
+<div class="wrap">
+  <div class="kicker">YA FORMAN PARTE DEL VIAJE</div><h2>Experiencias confirmadas</h2>
+  <p class="intro">Estas cuatro experiencias están integradas al itinerario; no se presentan como opciones ni como pendientes.</p>
+  <div class="grid2">
+    <div class="card confirmed"><div class="status"><i></i> CONFIRMADO</div><h3>🏜️ Gran Cañón</h3><p>Martes 27 · excursión de día completo con SkyWalk, tirolesa y comida.</p></div>
+    <div class="card confirmed"><div class="status"><i></i> CONFIRMADO</div><h3>🚁 Helicóptero</h3><p>Miércoles 28 · vuelo panorámico sobre el Strip.</p></div>
+    <div class="card confirmed"><div class="status"><i></i> CONFIRMADO</div><h3>🌐 Sphere</h3><p>Miércoles 28 · función de las 17:00.</p></div>
+    <div class="card confirmed"><div class="status"><i></i> CONFIRMADO</div><h3>🎭 “O” · Cirque du Soleil</h3><p>Miércoles 28 · Bellagio.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="galeria">
+<div class="wrap">
+  <div class="kicker">LA ATMÓSFERA DEL VIAJE</div><h2>Lo que van a vivir</h2>
+  <div class="gallery">
+    <div class="gimg big" style="background-image:url('https://images.unsplash.com/photo-1581351721010-8cf859cb14a4?auto=format&fit=crop&w=1200&q=85')"><span>Las Vegas Strip</span></div>
+    <div class="gimg" style="background-image:url('https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=900&q=85')"><span>Gran Cañón</span></div>
+    <div class="gimg" style="background-image:url('https://images.unsplash.com/photo-1561359313-0639aad49ca6?auto=format&fit=crop&w=900&q=85')"><span>Luces de Vegas</span></div>
+    <div class="gimg" style="background-image:url('https://images.unsplash.com/photo-1601165269603-6e9cba2d5fd6?auto=format&fit=crop&w=900&q=85')"><span>Fremont</span></div>
+    <div class="gimg" style="background-image:url('https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?auto=format&fit=crop&w=900&q=85')"><span>Bellagio</span></div>
+  </div>
+</div>
+</section>
+
+<section id="mapa">
+<div class="wrap">
+  <div class="kicker">UBICARNOS</div><h2>La lógica del viaje</h2>
+  <div class="mapbox">
+    <p class="intro" style="margin-top:0">Paris Las Vegas funciona como base. Caminan dentro de cada zona y usan taxi o aplicación para los tramos largos.</p>
+    <div class="route">
+      <span>✈️ Aeropuerto</span><span>→</span><span>🏨 Paris Las Vegas</span><span>→</span><span>⛲ Bellagio / Strip</span>
+      <span>🏜️ Gran Cañón</span><span>🚁 Helicóptero</span><span>🌐 Sphere</span><span>✨ Fremont</span><span>🛍️ Outlets</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="comer">
+<div class="wrap">
+  <div class="kicker">SENTARSE A LA MESA</div><h2>Comer bien sin complicarse</h2>
+  <div class="facts">
+    <div class="fact"><b>US$150–200</b><small>Presupuesto diario aproximado para los dos.</small></div>
+    <div class="fact"><b>Martes 27</b><small>Comida integrada en la excursión; cena ligera.</small></div>
+    <div class="fact"><b>Miércoles 28</b><small>Cena coordinada alrededor de Sphere y “O”.</small></div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <b>LAS VEGAS · OCTUBRE 2026</b><br>
+  Una guía de Mundo para Magaly y su esposo.
+</footer>
+
+<script>
+const tabs=[...document.querySelectorAll('.day-tab')];
+const panels=[...document.querySelectorAll('.day-panel')];
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.remove('active'));
+  panels.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById(t.dataset.day).classList.add('active');
+}));
+</script>
+</body>
+</html>
